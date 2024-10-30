@@ -1,17 +1,20 @@
-set(TARGET_NAME w5x00_sntp)
+set(TARGET_NAME ARP_Table_and_packet_Parsing)
 
 add_executable(${TARGET_NAME}
         ${TARGET_NAME}.c
         )
 
-target_link_libraries(${TARGET_NAME} PUBLIC
+target_link_libraries(${TARGET_NAME} PRIVATE
         pico_stdlib
         hardware_spi
         hardware_dma
         ETHERNET_FILES
         IOLIBRARY_FILES
-        SNTP_FILES
-        TIMER_FILES
+        TIMER_FILES        
+        mbedcrypto
+        mbedx509
+        mbedtls
+        DHCP_FILES
         )
 
 pico_enable_stdio_usb(${TARGET_NAME} 1)

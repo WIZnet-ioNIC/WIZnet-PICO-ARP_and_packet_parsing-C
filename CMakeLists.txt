@@ -1,11 +1,25 @@
+# == DO NEVER EDIT THE NEXT LINES for Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.0.0)
+set(toolchainVersion 13_2_Rel1)
+set(picotoolVersion 2.0.0)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 # CMake minimum required version
 cmake_minimum_required(VERSION 3.12)
  
 # Set board
 #set(BOARD_NAME WIZnet_Ethernet_HAT)
 #set(BOARD_NAME W5100S_EVB_PICO)
-set(BOARD_NAME W5500_EVB_PICO)
-#set(BOARD_NAME W55RP20_EVB_PICO)
+#set(BOARD_NAME W5500_EVB_PICO)    
+set(BOARD_NAME W55RP20_EVB_PICO)
 #set(BOARD_NAME W5100S_EVB_PICO2)
 #set(BOARD_NAME W5500_EVB_PICO2)
 
